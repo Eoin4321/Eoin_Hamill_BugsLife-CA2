@@ -73,6 +73,12 @@ build CMakeFiles/Eoin_Hamill_BugsLife_CA2.dir/Hopper.cpp.obj: CXX_COMPILER__Eoin
   OBJECT_DIR = CMakeFiles\Eoin_Hamill_BugsLife_CA2.dir
   OBJECT_FILE_DIR = CMakeFiles\Eoin_Hamill_BugsLife_CA2.dir
 
+build CMakeFiles/Eoin_Hamill_BugsLife_CA2.dir/Board.cpp.obj: CXX_COMPILER__Eoin_Hamill_BugsLife_CA2_unscanned_Debug C$:/Users/kay/CLionProjects/Eoin_Hamill_BugsLife_CA2/Board.cpp || cmake_object_order_depends_target_Eoin_Hamill_BugsLife_CA2
+  DEP_FILE = CMakeFiles\Eoin_Hamill_BugsLife_CA2.dir\Board.cpp.obj.d
+  FLAGS = -g -fdiagnostics-color=always
+  OBJECT_DIR = CMakeFiles\Eoin_Hamill_BugsLife_CA2.dir
+  OBJECT_FILE_DIR = CMakeFiles\Eoin_Hamill_BugsLife_CA2.dir
+
 
 # =============================================================================
 # Link build statements for EXECUTABLE target Eoin_Hamill_BugsLife_CA2
@@ -81,7 +87,7 @@ build CMakeFiles/Eoin_Hamill_BugsLife_CA2.dir/Hopper.cpp.obj: CXX_COMPILER__Eoin
 #############################################
 # Link the executable Eoin_Hamill_BugsLife_CA2.exe
 
-build Eoin_Hamill_BugsLife_CA2.exe: CXX_EXECUTABLE_LINKER__Eoin_Hamill_BugsLife_CA2_Debug CMakeFiles/Eoin_Hamill_BugsLife_CA2.dir/main.cpp.obj CMakeFiles/Eoin_Hamill_BugsLife_CA2.dir/Bug.cpp.obj CMakeFiles/Eoin_Hamill_BugsLife_CA2.dir/Crawler.cpp.obj CMakeFiles/Eoin_Hamill_BugsLife_CA2.dir/Hopper.cpp.obj
+build Eoin_Hamill_BugsLife_CA2.exe: CXX_EXECUTABLE_LINKER__Eoin_Hamill_BugsLife_CA2_Debug CMakeFiles/Eoin_Hamill_BugsLife_CA2.dir/main.cpp.obj CMakeFiles/Eoin_Hamill_BugsLife_CA2.dir/Bug.cpp.obj CMakeFiles/Eoin_Hamill_BugsLife_CA2.dir/Crawler.cpp.obj CMakeFiles/Eoin_Hamill_BugsLife_CA2.dir/Hopper.cpp.obj CMakeFiles/Eoin_Hamill_BugsLife_CA2.dir/Board.cpp.obj
   FLAGS = -g
   LINK_LIBRARIES = -lkernel32 -luser32 -lgdi32 -lwinspool -lshell32 -lole32 -loleaut32 -luuid -lcomdlg32 -ladvapi32
   OBJECT_DIR = CMakeFiles\Eoin_Hamill_BugsLife_CA2.dir

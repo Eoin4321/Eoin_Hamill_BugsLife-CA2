@@ -10,4 +10,6 @@ add_executable(Eoin_Hamill_BugsLife_CA2 main.cpp
         Crawler.cpp
         Crawler.h
         Hopper.cpp
-        Hopper.h)
+        Hopper.h
+        Board.cpp
+        Board.h)
