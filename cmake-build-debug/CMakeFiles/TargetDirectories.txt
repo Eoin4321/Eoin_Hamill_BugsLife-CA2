@@ -1,0 +1,3 @@
+C:/Users/kay/CLionProjects/Eoin_Hamill_BugsLife_CA2/cmake-build-debug/CMakeFiles/Eoin_Hamill_BugsLife_CA2.dir
+C:/Users/kay/CLionProjects/Eoin_Hamill_BugsLife_CA2/cmake-build-debug/CMakeFiles/edit_cache.dir
+C:/Users/kay/CLionProjects/Eoin_Hamill_BugsLife_CA2/cmake-build-debug/CMakeFiles/rebuild_cache.dir
