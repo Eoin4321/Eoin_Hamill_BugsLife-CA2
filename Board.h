@@ -26,6 +26,7 @@ public:
     void DemoOutputFileStream();
     void parseLine(const std::string& strLine);
     void DemoInputFileStream();
+    string searchBugBasedOnID(int);
 };
 
 

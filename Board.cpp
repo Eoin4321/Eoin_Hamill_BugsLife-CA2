@@ -131,3 +131,12 @@ void Board::displayAllBugs(){
         cout <<currentBug->toString() <<endl;
     }
 }
+
+string Board:: searchBugBasedOnID(int input)
+{
+    for (Bug* currentBug: buglist)
+    {
+        if(currentBug->getId()==input)
+        return currentBug->toString()
+    }
+}
