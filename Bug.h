@@ -3,6 +3,10 @@
 #include <utility>
 #include <list>
 #include <ostream>
+#include<stdio.h>   // Standard Input Output
+#include<iostream>  // Input Output Stream
+#include<string>    // string library
+#include<sstream>   // String Stream library
 
 using namespace std;
 

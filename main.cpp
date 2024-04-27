@@ -2,8 +2,8 @@
 
 int main() {
     Board* board = new Board();
-    board->DemoInputFileStream();
-    board->displayAllBugs();
+    //board->DemoInputFileStream();
+    //board->displayAllBugs();
     board -> display();
 
     cout<< "Menu\n";
@@ -17,6 +17,22 @@ int main() {
     cout<< "7.Run simulation (generates a Tap every second)\n";
     cout<< "8.Exit (write Life History of all Bugs to file)\n";
     cout<< "--------------------------------------------\n";
+
+    cout << "Enter your Command:";
+
+    string command;	// note lowercase "s" for string type (unlike Java)
+
+    cin >> command;
+
+    if(command == "1")
+    {
+        board->DemoInputFileStream();
+        cout<< "Bugs have been updated based on file\n";
+    }
+    if(command == "2")
+    {
+        board->displayAllBugs();
+    }
 
     return 0;
 }
