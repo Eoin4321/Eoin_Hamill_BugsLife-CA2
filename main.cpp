@@ -2,10 +2,9 @@
 
 int main() {
     Board* board = new Board();
+    board->display();
     //Menu while loop
     while(true) {
-        board->display();
-
         cout << "Menu\n";
         cout << "--------------------------------------------\n";
         cout << "1.Initialize Bug Board (load data from file)\n";
@@ -25,6 +24,7 @@ int main() {
         if (command == "1") {
             board->DemoInputFileStream();
             cout << "Bugs have been updated based on file\n";
+            board->display();
         }
         if (command == "2") {
             board->displayAllBugs();
@@ -34,6 +34,11 @@ int main() {
             int input;    // note lowercase "s" for string type (unlike Java)
             cin >> command;
             board->searchBugBasedOnID(input);
+        }
+        if(command == "4"){
+            cout << "Shaking Board:\n";
+            board->tapBoard();
+            board->display();
         }
     }
     return 0;

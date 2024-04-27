@@ -1,6 +1,11 @@
 #include "Board.h"
 
 void Board::display() {
+    for (int row = 0; row < 10; row++) {
+        //This loop goes through the row
+        for (int column = 0; column < 10; column++)
+            boardGrid[row][column] = '=';
+    }
     for(Bug* currentBug: buglist)
     {
         int x =currentBug->getPosition().first;
@@ -156,5 +161,12 @@ string Board:: searchBugBasedOnID(int input)
     {
         if(currentBug->getId()==input)
         return currentBug->toString();
+    }
+}
+
+void Board::tapBoard(){
+    for (Bug* currentBug: buglist)
+    {
+        currentBug->move();
     }
 }

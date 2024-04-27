@@ -18,7 +18,7 @@ protected:
     int size;
     bool alive;
     std::list<std::pair<int,int>> path;
-    virtual void move()=0;
+
     bool isWayBlocked();
 
 public:
@@ -56,6 +56,8 @@ public:
     void setBugType(const string &bugType);
 
     string bugType;
+
+    virtual void move()=0;
 };
 
 

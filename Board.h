@@ -27,6 +27,7 @@ public:
     void parseLine(const std::string& strLine);
     void DemoInputFileStream();
     string searchBugBasedOnID(int);
+    void tapBoard();
 };
 
 
