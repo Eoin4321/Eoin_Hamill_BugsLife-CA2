@@ -1,9 +1,8 @@
 #ifndef EOIN_HAMILL_BUGSLIFE_CA2_BUG_H
 #define EOIN_HAMILL_BUGSLIFE_CA2_BUG_H
-
-
 #include <utility>
 #include <list>
+using namespace std;
 
 class Bug {
 protected:

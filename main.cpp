@@ -1,8 +1,7 @@
-#include <iostream>
-#include "Board.h"
+#include "main.h"
 
 int main() {
-    Board board;
-    board.display();
+    Board* board = new Board();
+    board -> display();
     return 0;
 }
