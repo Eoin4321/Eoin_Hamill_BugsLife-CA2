@@ -20,11 +20,9 @@ protected:
 
 
 public:
+    void displayAllBugs();
     Board();
     void display();
-
-    void importBugs(std::string fileName);
-
     void DemoOutputFileStream();
     void parseLine(const std::string& strLine);
     void DemoInputFileStream();

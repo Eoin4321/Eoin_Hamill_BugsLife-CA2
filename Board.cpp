@@ -16,8 +16,8 @@ void Board::display() {
 void Board::DemoInputFileStream() {
     cout << "Attempting to read from a comma-delimited text file." << endl;
 
-    ifstream inFileStream("bugs.txt"); // open file as input file stream (from working directory)
-
+    ifstream inFileStream; // open file as input file stream (from working directory)
+    inFileStream.open("bugs.txt");
     if ( inFileStream.good() )  // if file opened successfully, and not empty
     {
         string line;            // create a string object to store a line of text
@@ -67,7 +67,7 @@ void Board::parseLine(const string& strLine) {
             auto *tempCrawler = new Crawler(id, position, direction, size);
             // now, instantiate a Crawler and add to vector
 
-            this -> buglist.push_back(tempCrawler);
+            buglist.push_back(tempCrawler);
 
         } else if (bug_type == "H") { // if it is Hopper, then read the Hopper fields
             getline(strStream, strTemp, DELIMITER); // read next field (id) as a string
@@ -93,7 +93,7 @@ void Board::parseLine(const string& strLine) {
             auto *tempHopper = new Hopper(id, position, direction, size,hopLength);
             // now, instantiate a Crawler and add to vector
 
-            this -> buglist.push_back(tempHopper);
+            buglist.push_back(tempHopper);
 
 // and so on for all the expected fields
 
@@ -124,4 +124,10 @@ Board::Board(): boardGrid(), buglist() {
         }
 
 
+}
+void Board::displayAllBugs(){
+    for (Bug* currentBug: buglist)
+    {
+        cout <<currentBug->toString() <<endl;
+    }
 }

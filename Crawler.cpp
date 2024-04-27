@@ -7,3 +7,8 @@ Crawler::Crawler(int id, const pair<int, int> &position, int direction, int size
 void Crawler::move() {
 
 }
+
+void toString()
+{
+
+}
