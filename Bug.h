@@ -50,6 +50,12 @@ public:
     const list<std::pair<int, int>> &getPath() const;
 
     void setPath(const list<std::pair<int, int>> &path);
+
+    const string &getBugType() const;
+
+    void setBugType(const string &bugType);
+
+    string bugType;
 };
 
 

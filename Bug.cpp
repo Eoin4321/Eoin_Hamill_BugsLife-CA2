@@ -60,3 +60,11 @@ string Bug::toString() {
     }
     return entireString;
 }
+
+const string &Bug::getBugType() const {
+    return bugType;
+}
+
+void Bug::setBugType(const string &bugType) {
+    Bug::bugType = bugType;
+}

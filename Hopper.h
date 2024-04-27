@@ -11,6 +11,16 @@ public:
 
 protected:
     virtual void move();
+
+
+public:
+    int getHopLength() const;
+
+    void setHopLength(int hopLength);
+
+    const string &getBugType() const;
+
+    void setBugType(const string &bugType);
 };
 
 

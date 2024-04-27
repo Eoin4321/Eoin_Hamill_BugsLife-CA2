@@ -1,6 +1,25 @@
 #include "Board.h"
 
 void Board::display() {
+    for(Bug* currentBug: buglist)
+    {
+        int x =currentBug->getPosition().first;
+        int y =currentBug->getPosition().second;
+        if(currentBug->getBugType()=="Hopper")
+        {
+            boardGrid[y][x]='H';
+        }
+        else if(currentBug->getBugType()=="Crawler")
+        {
+            boardGrid[y][x]='C';
+        }
+        //Put third bug here later
+        else if(!currentBug->isAlive())
+        {
+            boardGrid[y][x]='=';
+        }
+    }
+
     //Iterate through the columns.
     for (int row = 0; row < 10; row++) {
         //Iterate through the row
@@ -9,7 +28,6 @@ void Board::display() {
         }
         std::cout << std::endl;
     }
-
 };
 
 
@@ -112,8 +130,8 @@ void Board::parseLine(const string& strLine) {
     }
 }
 
+//Setting everything to equal sign when its made
 Board::Board(): boardGrid(), buglist() {
-
 
 
         //Loop which repeats ten times going through each coloum. It creates a 10x10 boardGrid
@@ -137,6 +155,6 @@ string Board:: searchBugBasedOnID(int input)
     for (Bug* currentBug: buglist)
     {
         if(currentBug->getId()==input)
-        return currentBug->toString()
+        return currentBug->toString();
     }
 }

@@ -15,6 +15,10 @@ public:
 protected:
     virtual void move();
 
+public:
+    const string &getBugType() const;
+
+    void setBugType(const string &bugType);
 };
 
 
