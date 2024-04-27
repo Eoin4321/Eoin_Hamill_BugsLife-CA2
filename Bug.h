@@ -7,6 +7,7 @@
 #include<iostream>  // Input Output Stream
 #include<string>    // string library
 #include<sstream>   // String Stream library
+#include <cmath>;
 
 using namespace std;
 
@@ -18,7 +19,6 @@ protected:
     int size;
     bool alive;
     std::list<std::pair<int,int>> path;
-
     bool isWayBlocked();
 
 public:
@@ -58,6 +58,8 @@ public:
     string bugType;
 
     virtual void move()=0;
+
+
 };
 
 
