@@ -201,3 +201,25 @@ string Board::displaypath(){
     return bugslife;
 }
 
+string Board:: displaycells() {
+    string celldata;
+    bool cellempty=true;
+    //going through each row
+     for (int row = 0; row < 10; row++) {
+         //This loop goes through the column
+         for (int column = 0; column < 10; column++){
+             celldata=celldata+"("+ to_string(row)+","+ to_string(column)+": ";
+         for (Bug *currentBug: buglist) {
+             int x = currentBug->getPosition().first;
+             int y = currentBug->getPosition().second;
+             if(row==x&&column==y)
+             {
+                 celldata=celldata+" ,"+currentBug->getBugType()+" "+ to_string(currentBug->getId());
+                 cellempty=false;
+             }
+            }
+            celldata=celldata+"\n";
+         }
+     }
+     return celldata;
+ }

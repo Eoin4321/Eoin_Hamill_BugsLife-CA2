@@ -48,6 +48,11 @@ int main() {
         }
         if(command == "6")
         {
+            string cells=board->displaycells();
+            cout <<cells;
+        }
+        if(command == "8")
+        {
             string paths=board->displaypath();
             board->DemoOutputFileStream(paths);
             menu=false;

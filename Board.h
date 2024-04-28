@@ -29,6 +29,7 @@ public:
     string searchBugBasedOnID(int);
     void tapBoard();
     string displaypath();
+    string displaycells();
 };
 
 
