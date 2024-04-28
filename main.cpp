@@ -33,8 +33,9 @@ int main() {
         if(command == "3") {
             cout << "Enter the ID you want to search for:";
             int input;    // note lowercase "s" for string type (unlike Java)
-            cin >> command;
-            board->searchBugBasedOnID(input);
+            cin >> input;
+            string bug=board->searchBugBasedOnID(input);
+            cout <<bug;
         }
         if(command == "4"){
             cout << "Shaking Board:\n";

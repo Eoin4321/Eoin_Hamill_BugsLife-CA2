@@ -30,9 +30,3 @@ void Crawler::move() {
 
 }
 
-
-
-void toString()
-{
-
-}

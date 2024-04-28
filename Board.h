@@ -3,6 +3,7 @@
 
 #include "Crawler.h"
 #include "Hopper.h"
+#include "Spider.h"
 #include <iostream>
 #include <sstream>
 #include <fstream>

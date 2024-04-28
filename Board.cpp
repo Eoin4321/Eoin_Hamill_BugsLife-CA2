@@ -18,6 +18,10 @@ void Board::display() {
         {
             boardGrid[y][x]='C';
         }
+        else if(currentBug->getBugType()=="Spider"&&currentBug->isAlive())
+        {
+            boardGrid[y][x]='S';
+        }
         //Put third bug here later
         else if(!currentBug->isAlive())
         {
@@ -91,6 +95,29 @@ void Board::parseLine(const string& strLine) {
             // now, instantiate a Crawler and adding them to list
 
             buglist.push_back(tempCrawler);
+        }
+            else if (bug_type == "S") { // if it is Spider, then read the Spider fields
+                getline(strStream, strTemp, DELIMITER); // read next field (id) as a string
+                int id = stoi(strTemp); // convert string to int conversion (may throw exceptions)
+
+                getline(strStream, strTemp, DELIMITER);
+                pair<int, int> position;
+                position.first = stoi(strTemp);
+                getline(strStream, strTemp, DELIMITER);
+                position.second = stoi(strTemp);
+
+                getline(strStream, strTemp, DELIMITER); // read next field (id) as a string
+                int direction = stoi(strTemp); // convert string to int conversion (may throw exceptions)
+
+                getline(strStream, strTemp, DELIMITER); // read next field (id) as a string
+                int size = stoi(strTemp); // convert string to int conversion (may throw exceptions)
+
+                // and so on for all the expected crawler fields
+
+                auto *tempSpider = new Spider(id, position, direction, size);
+                // now, instantiate a Crawler and adding them to list
+
+                buglist.push_back(tempSpider);
 
         } else if (bug_type == "H") { // if it is Hopper, then read the Hopper fields
             getline(strStream, strTemp, DELIMITER); // read next field (id) as a string
@@ -164,11 +191,13 @@ void Board::displayAllBugs(){
 
 string Board:: searchBugBasedOnID(int input)
 {
+    string bug;
     for (Bug* currentBug: buglist)
     {
         if(currentBug->getId()==input)
-        return currentBug->toString();
+         return currentBug->toString();
     }
+    return "Bug not found";
 }
 
 void Board::tapBoard(){
@@ -290,11 +319,11 @@ int Board:: eat() {
 }
 
 void Board::runSimulation(){
-    //Learned this from https://www.youtube.com/watch?v=QYaQStudgnE
+    //Learned the sleep for from https://www.youtube.com/watch?v=QYaQStudgnE
     int bugsRemaining=buglist.size();
-    cout << "Shaking Board winton:\n";
+    cout << "Starting Simulation:\n";
     while(bugsRemaining!=1) {
-        cout << "Shaking Board winton:\n";
+        cout << "Shaking Board:\n";
         tapBoard();
         bugsRemaining=bugsRemaining-eat();
         display();
