@@ -71,10 +71,8 @@ void Bug::setBugType(const string &bugType) {
 
 bool Bug::isWayBlocked()
 {
-    cout << "1:\n";
     if(direction==1&&position.second==0) {
             return true;
-        cout << "Winton1:\n";
     }
     else if(direction==2&&position.first==9) {
             return true;
@@ -87,9 +85,7 @@ bool Bug::isWayBlocked()
     }
     else
     {
-        cout << "YIPEEEEEE:\n";
         return false;
     }
-    cout << "whileloopendo:\n";
 
 }

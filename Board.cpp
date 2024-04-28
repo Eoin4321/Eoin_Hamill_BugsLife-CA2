@@ -88,7 +88,7 @@ void Board::parseLine(const string& strLine) {
             // and so on for all the expected crawler fields
 
             auto *tempCrawler = new Crawler(id, position, direction, size);
-            // now, instantiate a Crawler and add to vector
+            // now, instantiate a Crawler and adding them to list
 
             buglist.push_back(tempCrawler);
 
@@ -114,7 +114,7 @@ void Board::parseLine(const string& strLine) {
             // and so on for all the expected crawler fields
 
             auto *tempHopper = new Hopper(id, position, direction, size,hopLength);
-            // now, instantiate a Crawler and add to vector
+            // now, instantiate a Hopper and adding them to list
 
             buglist.push_back(tempHopper);
 
@@ -170,3 +170,4 @@ void Board::tapBoard(){
         currentBug->move();
     }
 }
+
