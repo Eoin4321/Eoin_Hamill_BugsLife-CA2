@@ -339,6 +339,8 @@ void Board::runSimulation(){
 }
 //Code based on code from Moodle
 void Board::sfmlDisplay(){
+
+
     srand(time(NULL));
     //Making the player
     pair<int, int> position;
@@ -351,6 +353,8 @@ void Board::sfmlDisplay(){
     sf::CircleShape character(40);
     character.setPosition(0,0);
     character.setFillColor(sf::Color::Red);
+    //Making a collection of bugs list
+    vector<sf::CircleShape> bugs;
     vector<sf::RectangleShape> squares;
     //Ten by ten loop to make the grid
     for(int x = 0; x < 10;x ++)
@@ -364,6 +368,27 @@ void Board::sfmlDisplay(){
             cell.setOutlineColor(sf::Color::Black);
             squares.push_back(cell);
         }
+    }
+
+    for(Bug* currentBug :buglist)
+    {
+        //Making visuals.
+        sf::CircleShape bug(40);
+        bug.setPosition(currentBug->getPosition().first*80,currentBug->getPosition().second*80);
+        if(currentBug->bugType=="Crawler") {
+            bug.setFillColor(sf::Color::Black);
+        }
+        else if(currentBug->bugType=="Spider") {
+            bug.setFillColor(sf::Color::Blue);
+        }
+        else if(currentBug->bugType=="Hopper") {
+            bug.setFillColor(sf::Color::Green);
+        }
+        else
+        {
+            bug.setFillColor(sf::Color::Black);
+        }
+        bugs.push_back(bug);
     }
 
     while (window.isOpen())
@@ -428,6 +453,10 @@ void Board::sfmlDisplay(){
         for(sf::RectangleShape sh:squares)
         {
             window.draw(sh);
+        }
+        for(sf::CircleShape bug:bugs)
+        {
+            window.draw(bug);
         }
         window.draw(character);
         window.display();
