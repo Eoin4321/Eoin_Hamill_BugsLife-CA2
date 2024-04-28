@@ -30,7 +30,8 @@ public:
     void tapBoard();
     string displaypath();
     string displaycells();
-    void eat();
+    int eat();
+    void runSimulation();
 };
 
 

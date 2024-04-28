@@ -7,7 +7,10 @@
 #include<iostream>  // Input Output Stream
 #include<string>    // string library
 #include<sstream>   // String Stream library
-#include <cmath>;
+#include <cmath>
+//This is for the time
+#include <chrono>
+#include <thread>
 
 using namespace std;
 

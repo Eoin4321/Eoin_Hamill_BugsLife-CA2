@@ -147,14 +147,12 @@ void Board::DemoOutputFileStream(string data)
 //Setting everything to equal sign when its made
 Board::Board(): boardGrid(), buglist() {
 
-
         //Loop which repeats ten times going through each coloum. It creates a 10x10 boardGrid
         for (int row = 0; row < 10; row++) {
             //This loop goes through the row
             for (int column = 0; column < 10; column++)
                 boardGrid[row][column] = '=';
         }
-
 
 }
 void Board::displayAllBugs(){
@@ -187,7 +185,7 @@ string Board::displaypath(){
         bugslife=bugslife+to_string(currentBug->getId())+" "+currentBug->getBugType()+" "+"Path: ";
         for(std::pair<int,int> path : currentBug->getPath())
         {
-            bugslife=bugslife+"("+to_string(currentBug->getPosition().first)+","+to_string(currentBug->getPosition().second)+") ";
+            bugslife=bugslife+"("+to_string(path.first)+","+to_string(path.second)+") ";
         }
         if(currentBug->isAlive()) {
             bugslife = bugslife + "Alive!";
@@ -228,7 +226,8 @@ string Board:: displaycells() {
      }
      return celldata;
  }
-void Board:: eat() {
+int Board:: eat() {
+    int bugsEaten=0;
     std::list <Bug*> bugsOnCell;
     //going through each row
     for (int row = 0; row < 10; row++) {
@@ -249,16 +248,19 @@ void Board:: eat() {
                 if(biggestbug==0) {
                     biggestBugId=bugFight->getId();
                     biggestbug = bugFight->getSize();
+                    bugsEaten++;
                 }
                 else if(biggestbug>bugFight->getSize())
                 {
                     bugFight->setAlive(false);
                     bugFight->setEatenBy(biggestBugId);
+                    bugsEaten++;
                 }
                 else if(biggestbug<bugFight->getSize())
                 {
                     biggestbug=bugFight->getSize();
                     biggestBugId=bugFight->getId();
+                    bugsEaten++;
                 }
                 //Handling if there is a tie.
                 else if(biggestbug==bugFight->getSize())
@@ -270,16 +272,39 @@ void Board:: eat() {
                     {
                         biggestbug=bugFight->getSize();
                         biggestBugId=bugFight->getId();
+                        bugsEaten++;
                     }
                     //The old bug wins the fight
                     else if(winner==2)
                     {
                         bugFight->setAlive(false);
                         bugFight->setEatenBy(biggestBugId);
+                        bugsEaten++;
                     }
                 }
             }
             bugsOnCell.clear();
+        }
+    }
+    return bugsEaten;
+}
+
+void Board::runSimulation(){
+    //Learned this from https://www.youtube.com/watch?v=QYaQStudgnE
+    int bugsRemaining=buglist.size();
+    cout << "Shaking Board winton:\n";
+    while(bugsRemaining!=1) {
+        cout << "Shaking Board winton:\n";
+        tapBoard();
+        bugsRemaining=bugsRemaining-eat();
+        display();
+        std::this_thread::sleep_for(std::chrono::seconds(1));
+    }
+    for (Bug *currentBug: buglist)
+    {
+        if(currentBug->isAlive())
+        {
+            cout << "The winner is: "+currentBug->getId();
         }
     }
 }

@@ -52,6 +52,10 @@ int main() {
             string cells=board->displaycells();
             cout <<cells;
         }
+        if(command == "7")
+        {
+            board->runSimulation();
+        }
         if(command == "8")
         {
             string paths=board->displaypath();
