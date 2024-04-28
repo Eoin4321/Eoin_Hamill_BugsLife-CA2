@@ -33,6 +33,7 @@ public:
     string displaycells();
     int eat();
     void runSimulation();
+    void sfmlDisplay();
 };
 
 

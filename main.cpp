@@ -64,6 +64,10 @@ int main() {
             board->DemoOutputFileStream(paths);
             menu=false;
         }
+        if(command == "9")
+        {
+            board->sfmlDisplay();
+        }
     }
     return 0;
 }

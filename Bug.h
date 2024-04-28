@@ -11,6 +11,8 @@
 //This is for the time
 #include <chrono>
 #include <thread>
+//This is for the graphics
+#include <SFML/Graphics.hpp>
 
 using namespace std;
 
