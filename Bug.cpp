@@ -89,3 +89,11 @@ bool Bug::isWayBlocked()
     }
 
 }
+
+int Bug::getEatenBy() const {
+    return eatenBy;
+}
+
+void Bug::setEatenBy(int eatenBy) {
+    Bug::eatenBy = eatenBy;
+}

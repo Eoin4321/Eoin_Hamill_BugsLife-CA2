@@ -10,11 +10,11 @@ void Board::display() {
     {
         int x =currentBug->getPosition().first;
         int y =currentBug->getPosition().second;
-        if(currentBug->getBugType()=="Hopper")
+        if(currentBug->getBugType()=="Hopper"&&currentBug->isAlive())
         {
             boardGrid[y][x]='H';
         }
-        else if(currentBug->getBugType()=="Crawler")
+        else if(currentBug->getBugType()=="Crawler"&&currentBug->isAlive())
         {
             boardGrid[y][x]='C';
         }
@@ -194,7 +194,7 @@ string Board::displaypath(){
         }
         else if(!currentBug->isAlive())
         {
-            bugslife = bugslife + "Eaten by ";
+            bugslife = bugslife + "Eaten by "+to_string(currentBug->getEatenBy());
         }
         bugslife=bugslife+"\n";
     }
@@ -218,8 +218,68 @@ string Board:: displaycells() {
                  cellempty=false;
              }
             }
+            if(cellempty==false)
+            {
+                celldata=celldata+" Empty";
+                cellempty=true;
+            }
             celldata=celldata+"\n";
          }
      }
      return celldata;
  }
+void Board:: eat() {
+    std::list <Bug*> bugsOnCell;
+    //going through each row
+    for (int row = 0; row < 10; row++) {
+        //This loop goes through the column
+        for (int column = 0; column < 10; column++){
+            for (Bug *currentBug: buglist) {
+                int x = currentBug->getPosition().first;
+                int y = currentBug->getPosition().second;
+                if(row==x&&column==y&&currentBug->isAlive())
+                {
+                    bugsOnCell.push_back(currentBug);
+                }
+            }
+            int biggestbug=0;
+            int biggestBugId=0;
+            for(Bug *bugFight :bugsOnCell)
+            {
+                if(biggestbug==0) {
+                    biggestBugId=bugFight->getId();
+                    biggestbug = bugFight->getSize();
+                }
+                else if(biggestbug>bugFight->getSize())
+                {
+                    bugFight->setAlive(false);
+                    bugFight->setEatenBy(biggestBugId);
+                }
+                else if(biggestbug<bugFight->getSize())
+                {
+                    biggestbug=bugFight->getSize();
+                    biggestBugId=bugFight->getId();
+                }
+                //Handling if there is a tie.
+                else if(biggestbug==bugFight->getSize())
+                {
+                    srand(time(NULL));
+                    int winner= 1+(rand() % 2);
+                    //The new bug wins the random fight
+                    if(winner==1)
+                    {
+                        biggestbug=bugFight->getSize();
+                        biggestBugId=bugFight->getId();
+                    }
+                    //The old bug wins the fight
+                    else if(winner==2)
+                    {
+                        bugFight->setAlive(false);
+                        bugFight->setEatenBy(biggestBugId);
+                    }
+                }
+            }
+            bugsOnCell.clear();
+        }
+    }
+}

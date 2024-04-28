@@ -20,8 +20,13 @@ protected:
     bool alive;
     std::list<std::pair<int,int>> path;
     bool isWayBlocked();
+    int eatenBy;
 
 public:
+
+    int getEatenBy() const;
+
+    void setEatenBy(int eatenBy);
 
     string toString();
 

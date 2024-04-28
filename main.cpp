@@ -39,6 +39,7 @@ int main() {
         if(command == "4"){
             cout << "Shaking Board:\n";
             board->tapBoard();
+            board->eat();
             board->display();
         }
         if(command == "5")
