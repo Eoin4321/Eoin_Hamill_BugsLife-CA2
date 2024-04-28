@@ -6,14 +6,14 @@ Crawler::Crawler(int id, const pair<int, int> &position, int direction, int size
 }
 
 void Crawler::move() {
-    path.push_back(position);
-    //While loop will return true if way is blocked.
-    while(isWayBlocked())
-    {
-        //If bug is facing a wall it will face a random direction while loop will run again to make sure its not facing same direction.
-        srand(time(NULL));
-        direction= 1+ (rand() % 4);
-    }
+    if (alive) {
+        path.push_back(position);
+        //While loop will return true if way is blocked.
+        while (isWayBlocked()) {
+            //If bug is facing a wall it will face a random direction while loop will run again to make sure its not facing same direction.
+            srand(time(NULL));
+            direction = 1 + (rand() % 4);
+        }
         //North
         if (direction == 1) {
             position.second--;
@@ -28,5 +28,5 @@ void Crawler::move() {
         if (direction == 4)
             position.first--;
 
+    }
 }
-

@@ -16,6 +16,7 @@ int main() {
         cout << "6.Display all Cells listing their Bugs\n";
         cout << "7.Run simulation (generates a Tap every second)\n";
         cout << "8.Exit (write Life History of all Bugs to file)\n";
+        cout << "9.SFML\n";
         cout << "--------------------------------------------\n";
         //Taking in input
         cout << "Enter your Command:";
