@@ -169,5 +169,15 @@ void Board::tapBoard(){
     {
         currentBug->move();
     }
+
+}
+
+string Board::displaypath(){
+    for (Bug* currentBug: buglist){
+        string bugslife=to_string(currentBug->getId())+currentBug->getBugType()+"Path";
+    }
+
+
+
 }
 

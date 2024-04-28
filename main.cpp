@@ -40,6 +40,11 @@ int main() {
             board->tapBoard();
             board->display();
         }
+        if(command == "5")
+        {
+            string paths=board->displaypath();
+            cout <<paths;
+        }
     }
     return 0;
 }
