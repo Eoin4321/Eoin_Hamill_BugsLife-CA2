@@ -23,7 +23,7 @@ public:
     void displayAllBugs();
     Board();
     void display();
-    void DemoOutputFileStream();
+    void DemoOutputFileStream(string);
     void parseLine(const std::string& strLine);
     void DemoInputFileStream();
     string searchBugBasedOnID(int);

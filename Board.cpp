@@ -117,22 +117,31 @@ void Board::parseLine(const string& strLine) {
             // now, instantiate a Hopper and adding them to list
 
             buglist.push_back(tempHopper);
-
-// and so on for all the expected fields
-
-// and remember the extra field in hopper - hopping distance
-
-// now, instantiate a Hopper and add to vector
-
-
-
         }
-
     }
+
+
     catch (std::invalid_argument const &e) {
         cout;
 
     }
+}
+//Code based on code we did in class.
+void Board::DemoOutputFileStream(string data)
+{
+    // making an output file stream
+    ofstream outFileStream("bugs_life_history_date_time.out");  // default write mode (overwrites existing data)
+    //checking if im able to open file if it returns true and I can run the if statement
+    if ( outFileStream.good() )
+    {
+        //Adding in the data inputed to the file
+        outFileStream << data;
+
+        outFileStream.close(); //  close file
+        cout << "Bugs Path has been added to the file..\n Shutting down..." << endl;
+    }
+    else
+        cout << "Can't Open File. Please try again.";
 }
 
 //Setting everything to equal sign when its made

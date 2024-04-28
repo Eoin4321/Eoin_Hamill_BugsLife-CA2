@@ -4,8 +4,9 @@ int main() {
     Board* board = new Board();
     board->display();
     //Menu while loop
-    while(true) {
-        cout << "Menu\n";
+    bool menu=true;
+    while(menu) {
+        cout << "\nMenu\n";
         cout << "--------------------------------------------\n";
         cout << "1.Initialize Bug Board (load data from file)\n";
         cout << "2.Display all Bugs\n";
@@ -44,6 +45,12 @@ int main() {
         {
             string paths=board->displaypath();
             cout <<paths;
+        }
+        if(command == "6")
+        {
+            string paths=board->displaypath();
+            board->DemoOutputFileStream(paths);
+            menu=false;
         }
     }
     return 0;
