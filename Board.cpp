@@ -173,11 +173,22 @@ void Board::tapBoard(){
 }
 
 string Board::displaypath(){
+    string bugslife="";
     for (Bug* currentBug: buglist){
-        string bugslife=to_string(currentBug->getId())+currentBug->getBugType()+"Path";
+        bugslife=bugslife+to_string(currentBug->getId())+" "+currentBug->getBugType()+" "+"Path: ";
+        for(std::pair<int,int> path : currentBug->getPath())
+        {
+            bugslife=bugslife+"("+to_string(currentBug->getPosition().first)+","+to_string(currentBug->getPosition().second)+") ";
+        }
+        if(currentBug->isAlive()) {
+            bugslife = bugslife + "Alive!";
+        }
+        else if(!currentBug->isAlive())
+        {
+            bugslife = bugslife + "Eaten by ";
+        }
+        bugslife=bugslife+"\n";
     }
-
-
-
+    return bugslife;
 }
 
